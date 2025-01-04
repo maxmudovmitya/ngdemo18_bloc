@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:randomuser_bloc/bloc/home_bloc.dart';
 import 'package:randomuser_bloc/pages/home_page.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:randomuser_bloc/pages/home_page.dart';
@@ -19,7 +21,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: BlocProvider(
+        create: (context) => HomeBloc(),
+        child: HomePage(),
+      ),
     );
   }
 }
